@@ -1,0 +1,15 @@
+module CrawlerDev
+  module Resources
+    class URLs
+      def extract_text: (
+        url: String,
+        ?clean_text: bool,
+        ?render_js: bool,
+        ?strip_boilerplate: bool,
+        ?request_options: CrawlerDev::request_opts
+      ) -> CrawlerDev::Models::URLExtractTextResponse
+
+      def initialize: (client: CrawlerDev::Client) -> void
+    end
+  end
+end

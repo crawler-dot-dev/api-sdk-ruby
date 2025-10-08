@@ -1,0 +1,5 @@
+module CrawlerDev
+  class FileExtractTextParams = CrawlerDev::Models::FileExtractTextParams
+
+  class URLExtractTextParams = CrawlerDev::Models::URLExtractTextParams
+end

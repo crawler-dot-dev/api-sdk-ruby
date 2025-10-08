@@ -1,0 +1,57 @@
+module CrawlerDev
+  module Models
+    type file_extract_text_response =
+      {
+        content_type: String,
+        extracted_text: String,
+        filename: String,
+        size_bytes: Integer,
+        success: bool,
+        text_length: Integer
+      }
+
+    class FileExtractTextResponse < CrawlerDev::Internal::Type::BaseModel
+      attr_reader content_type: String?
+
+      def content_type=: (String) -> String
+
+      attr_reader extracted_text: String?
+
+      def extracted_text=: (String) -> String
+
+      attr_reader filename: String?
+
+      def filename=: (String) -> String
+
+      attr_reader size_bytes: Integer?
+
+      def size_bytes=: (Integer) -> Integer
+
+      attr_reader success: bool?
+
+      def success=: (bool) -> bool
+
+      attr_reader text_length: Integer?
+
+      def text_length=: (Integer) -> Integer
+
+      def initialize: (
+        ?content_type: String,
+        ?extracted_text: String,
+        ?filename: String,
+        ?size_bytes: Integer,
+        ?success: bool,
+        ?text_length: Integer
+      ) -> void
+
+      def to_hash: -> {
+        content_type: String,
+        extracted_text: String,
+        filename: String,
+        size_bytes: Integer,
+        success: bool,
+        text_length: Integer
+      }
+    end
+  end
+end
