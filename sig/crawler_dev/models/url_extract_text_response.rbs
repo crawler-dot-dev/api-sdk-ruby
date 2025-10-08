@@ -1,0 +1,71 @@
+module CrawlerDev
+  module Models
+    type url_extract_text_response =
+      {
+        content_type: String,
+        extracted_text: String,
+        final_url: String,
+        size_bytes: Integer,
+        status_code: Integer,
+        success: bool,
+        text_length: Integer,
+        url: String
+      }
+
+    class URLExtractTextResponse < CrawlerDev::Internal::Type::BaseModel
+      attr_reader content_type: String?
+
+      def content_type=: (String) -> String
+
+      attr_reader extracted_text: String?
+
+      def extracted_text=: (String) -> String
+
+      attr_reader final_url: String?
+
+      def final_url=: (String) -> String
+
+      attr_reader size_bytes: Integer?
+
+      def size_bytes=: (Integer) -> Integer
+
+      attr_reader status_code: Integer?
+
+      def status_code=: (Integer) -> Integer
+
+      attr_reader success: bool?
+
+      def success=: (bool) -> bool
+
+      attr_reader text_length: Integer?
+
+      def text_length=: (Integer) -> Integer
+
+      attr_reader url: String?
+
+      def url=: (String) -> String
+
+      def initialize: (
+        ?content_type: String,
+        ?extracted_text: String,
+        ?final_url: String,
+        ?size_bytes: Integer,
+        ?status_code: Integer,
+        ?success: bool,
+        ?text_length: Integer,
+        ?url: String
+      ) -> void
+
+      def to_hash: -> {
+        content_type: String,
+        extracted_text: String,
+        final_url: String,
+        size_bytes: Integer,
+        status_code: Integer,
+        success: bool,
+        text_length: Integer,
+        url: String
+      }
+    end
+  end
+end
