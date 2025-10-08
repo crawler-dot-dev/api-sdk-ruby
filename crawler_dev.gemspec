@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ""
   s.homepage = "https://gemdocs.org/gems/crawler.dev"
   s.metadata["homepage_uri"] = s.homepage
-  s.metadata["source_code_uri"] = "https://github.com/stainless-sdks/crawler.dev-ruby"
+  s.metadata["source_code_uri"] = "https://github.com/crawler-dot-dev/api-sdk-ruby"
   s.metadata["rubygems_mfa_required"] = false.to_s
   s.required_ruby_version = ">= 3.2.0"
 
