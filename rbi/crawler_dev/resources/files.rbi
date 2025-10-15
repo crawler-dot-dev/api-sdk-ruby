@@ -9,7 +9,6 @@ module CrawlerDev
         params(
           file: CrawlerDev::Internal::FileInput,
           clean_text: T::Boolean,
-          strip_boilerplate: T::Boolean,
           request_options: CrawlerDev::RequestOptions::OrHash
         ).returns(CrawlerDev::Models::FileExtractTextResponse)
       end
@@ -18,8 +17,6 @@ module CrawlerDev
         file:,
         # Whether to clean the extracted text
         clean_text: nil,
-        # Whether to remove boilerplate text
-        strip_boilerplate: nil,
         request_options: {}
       )
       end

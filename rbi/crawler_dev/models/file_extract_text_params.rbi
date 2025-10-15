@@ -25,18 +25,10 @@ module CrawlerDev
       sig { params(clean_text: T::Boolean).void }
       attr_writer :clean_text
 
-      # Whether to remove boilerplate text
-      sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :strip_boilerplate
-
-      sig { params(strip_boilerplate: T::Boolean).void }
-      attr_writer :strip_boilerplate
-
       sig do
         params(
           file: CrawlerDev::Internal::FileInput,
           clean_text: T::Boolean,
-          strip_boilerplate: T::Boolean,
           request_options: CrawlerDev::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -45,8 +37,6 @@ module CrawlerDev
         file:,
         # Whether to clean the extracted text
         clean_text: nil,
-        # Whether to remove boilerplate text
-        strip_boilerplate: nil,
         request_options: {}
       )
       end
@@ -56,7 +46,6 @@ module CrawlerDev
           {
             file: CrawlerDev::Internal::FileInput,
             clean_text: T::Boolean,
-            strip_boilerplate: T::Boolean,
             request_options: CrawlerDev::RequestOptions
           }
         )

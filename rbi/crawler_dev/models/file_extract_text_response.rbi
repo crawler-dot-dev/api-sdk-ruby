@@ -35,12 +35,6 @@ module CrawlerDev
       sig { params(size_bytes: Integer).void }
       attr_writer :size_bytes
 
-      sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :success
-
-      sig { params(success: T::Boolean).void }
-      attr_writer :success
-
       sig { returns(T.nilable(Integer)) }
       attr_reader :text_length
 
@@ -53,7 +47,6 @@ module CrawlerDev
           extracted_text: String,
           filename: String,
           size_bytes: Integer,
-          success: T::Boolean,
           text_length: Integer
         ).returns(T.attached_class)
       end
@@ -62,7 +55,6 @@ module CrawlerDev
         extracted_text: nil,
         filename: nil,
         size_bytes: nil,
-        success: nil,
         text_length: nil
       )
       end
@@ -74,7 +66,6 @@ module CrawlerDev
             extracted_text: String,
             filename: String,
             size_bytes: Integer,
-            success: T::Boolean,
             text_length: Integer
           }
         )

@@ -1,11 +1,7 @@
 module CrawlerDev
   module Models
     type file_extract_text_params =
-      {
-        file: CrawlerDev::Internal::file_input,
-        clean_text: bool,
-        strip_boilerplate: bool
-      }
+      { file: CrawlerDev::Internal::file_input, clean_text: bool }
       & CrawlerDev::Internal::Type::request_parameters
 
     class FileExtractTextParams < CrawlerDev::Internal::Type::BaseModel
@@ -18,21 +14,15 @@ module CrawlerDev
 
       def clean_text=: (bool) -> bool
 
-      attr_reader strip_boilerplate: bool?
-
-      def strip_boilerplate=: (bool) -> bool
-
       def initialize: (
         file: CrawlerDev::Internal::file_input,
         ?clean_text: bool,
-        ?strip_boilerplate: bool,
         ?request_options: CrawlerDev::request_opts
       ) -> void
 
       def to_hash: -> {
         file: CrawlerDev::Internal::file_input,
         clean_text: bool,
-        strip_boilerplate: bool,
         request_options: CrawlerDev::RequestOptions
       }
     end

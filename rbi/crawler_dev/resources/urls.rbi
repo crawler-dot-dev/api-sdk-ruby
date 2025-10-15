@@ -9,8 +9,8 @@ module CrawlerDev
         params(
           url: String,
           clean_text: T::Boolean,
-          render_js: T::Boolean,
-          strip_boilerplate: T::Boolean,
+          headers: T::Hash[Symbol, String],
+          proxy: CrawlerDev::URLExtractTextParams::Proxy::OrHash,
           request_options: CrawlerDev::RequestOptions::OrHash
         ).returns(CrawlerDev::Models::URLExtractTextResponse)
       end
@@ -19,11 +19,10 @@ module CrawlerDev
         url:,
         # Whether to clean extracted text
         clean_text: nil,
-        # Whether to render JavaScript for HTML content. This parameter is ignored for
-        # binary content types (PDF, DOC, etc.) since they are not HTML.
-        render_js: nil,
-        # Whether to remove boilerplate text
-        strip_boilerplate: nil,
+        # Custom HTTP headers to send with the request (case-insensitive)
+        headers: nil,
+        # Proxy configuration for the request
+        proxy: nil,
         request_options: {}
       )
       end
