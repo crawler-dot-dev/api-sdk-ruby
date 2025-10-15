@@ -7,7 +7,6 @@ module CrawlerDev
         final_url: String,
         size_bytes: Integer,
         status_code: Integer,
-        success: bool,
         text_length: Integer,
         url: String
       }
@@ -33,10 +32,6 @@ module CrawlerDev
 
       def status_code=: (Integer) -> Integer
 
-      attr_reader success: bool?
-
-      def success=: (bool) -> bool
-
       attr_reader text_length: Integer?
 
       def text_length=: (Integer) -> Integer
@@ -51,7 +46,6 @@ module CrawlerDev
         ?final_url: String,
         ?size_bytes: Integer,
         ?status_code: Integer,
-        ?success: bool,
         ?text_length: Integer,
         ?url: String
       ) -> void
@@ -62,7 +56,6 @@ module CrawlerDev
         final_url: String,
         size_bytes: Integer,
         status_code: Integer,
-        success: bool,
         text_length: Integer,
         url: String
       }

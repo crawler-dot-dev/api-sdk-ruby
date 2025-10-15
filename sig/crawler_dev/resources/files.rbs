@@ -4,7 +4,6 @@ module CrawlerDev
       def extract_text: (
         file: CrawlerDev::Internal::file_input,
         ?clean_text: bool,
-        ?strip_boilerplate: bool,
         ?request_options: CrawlerDev::request_opts
       ) -> CrawlerDev::Models::FileExtractTextResponse
 

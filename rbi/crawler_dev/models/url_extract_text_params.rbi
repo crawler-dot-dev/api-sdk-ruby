@@ -22,27 +22,28 @@ module CrawlerDev
       sig { params(clean_text: T::Boolean).void }
       attr_writer :clean_text
 
-      # Whether to render JavaScript for HTML content. This parameter is ignored for
-      # binary content types (PDF, DOC, etc.) since they are not HTML.
-      sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :render_js
+      # Custom HTTP headers to send with the request (case-insensitive)
+      sig { returns(T.nilable(T::Hash[Symbol, String])) }
+      attr_reader :headers
 
-      sig { params(render_js: T::Boolean).void }
-      attr_writer :render_js
+      sig { params(headers: T::Hash[Symbol, String]).void }
+      attr_writer :headers
 
-      # Whether to remove boilerplate text
-      sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :strip_boilerplate
+      # Proxy configuration for the request
+      sig { returns(T.nilable(CrawlerDev::URLExtractTextParams::Proxy)) }
+      attr_reader :proxy
 
-      sig { params(strip_boilerplate: T::Boolean).void }
-      attr_writer :strip_boilerplate
+      sig do
+        params(proxy: CrawlerDev::URLExtractTextParams::Proxy::OrHash).void
+      end
+      attr_writer :proxy
 
       sig do
         params(
           url: String,
           clean_text: T::Boolean,
-          render_js: T::Boolean,
-          strip_boilerplate: T::Boolean,
+          headers: T::Hash[Symbol, String],
+          proxy: CrawlerDev::URLExtractTextParams::Proxy::OrHash,
           request_options: CrawlerDev::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -51,11 +52,10 @@ module CrawlerDev
         url:,
         # Whether to clean extracted text
         clean_text: nil,
-        # Whether to render JavaScript for HTML content. This parameter is ignored for
-        # binary content types (PDF, DOC, etc.) since they are not HTML.
-        render_js: nil,
-        # Whether to remove boilerplate text
-        strip_boilerplate: nil,
+        # Custom HTTP headers to send with the request (case-insensitive)
+        headers: nil,
+        # Proxy configuration for the request
+        proxy: nil,
         request_options: {}
       )
       end
@@ -65,13 +65,70 @@ module CrawlerDev
           {
             url: String,
             clean_text: T::Boolean,
-            render_js: T::Boolean,
-            strip_boilerplate: T::Boolean,
+            headers: T::Hash[Symbol, String],
+            proxy: CrawlerDev::URLExtractTextParams::Proxy,
             request_options: CrawlerDev::RequestOptions
           }
         )
       end
       def to_hash
+      end
+
+      class Proxy < CrawlerDev::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              CrawlerDev::URLExtractTextParams::Proxy,
+              CrawlerDev::Internal::AnyHash
+            )
+          end
+
+        # Proxy password for authentication
+        sig { returns(T.nilable(String)) }
+        attr_reader :password
+
+        sig { params(password: String).void }
+        attr_writer :password
+
+        # Proxy server URL (e.g., http://proxy.example.com:8080 or
+        # socks5://proxy.example.com:1080)
+        sig { returns(T.nilable(String)) }
+        attr_reader :server
+
+        sig { params(server: String).void }
+        attr_writer :server
+
+        # Proxy username for authentication
+        sig { returns(T.nilable(String)) }
+        attr_reader :username
+
+        sig { params(username: String).void }
+        attr_writer :username
+
+        # Proxy configuration for the request
+        sig do
+          params(password: String, server: String, username: String).returns(
+            T.attached_class
+          )
+        end
+        def self.new(
+          # Proxy password for authentication
+          password: nil,
+          # Proxy server URL (e.g., http://proxy.example.com:8080 or
+          # socks5://proxy.example.com:1080)
+          server: nil,
+          # Proxy username for authentication
+          username: nil
+        )
+        end
+
+        sig do
+          override.returns(
+            { password: String, server: String, username: String }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

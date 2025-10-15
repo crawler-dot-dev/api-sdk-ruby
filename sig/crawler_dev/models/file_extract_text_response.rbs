@@ -6,7 +6,6 @@ module CrawlerDev
         extracted_text: String,
         filename: String,
         size_bytes: Integer,
-        success: bool,
         text_length: Integer
       }
 
@@ -27,10 +26,6 @@ module CrawlerDev
 
       def size_bytes=: (Integer) -> Integer
 
-      attr_reader success: bool?
-
-      def success=: (bool) -> bool
-
       attr_reader text_length: Integer?
 
       def text_length=: (Integer) -> Integer
@@ -40,7 +35,6 @@ module CrawlerDev
         ?extracted_text: String,
         ?filename: String,
         ?size_bytes: Integer,
-        ?success: bool,
         ?text_length: Integer
       ) -> void
 
@@ -49,7 +43,6 @@ module CrawlerDev
         extracted_text: String,
         filename: String,
         size_bytes: Integer,
-        success: bool,
         text_length: Integer
       }
     end

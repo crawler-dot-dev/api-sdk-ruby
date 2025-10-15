@@ -4,8 +4,8 @@ module CrawlerDev
       def extract_text: (
         url: String,
         ?clean_text: bool,
-        ?render_js: bool,
-        ?strip_boilerplate: bool,
+        ?headers: ::Hash[Symbol, String],
+        ?proxy: CrawlerDev::URLExtractTextParams::Proxy,
         ?request_options: CrawlerDev::request_opts
       ) -> CrawlerDev::Models::URLExtractTextResponse
 

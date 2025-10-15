@@ -19,7 +19,6 @@ class CrawlerDev::Test::Resources::URLsTest < CrawlerDev::Test::ResourceTest
         final_url: String | nil,
         size_bytes: Integer | nil,
         status_code: Integer | nil,
-        success: CrawlerDev::Internal::Type::Boolean | nil,
         text_length: Integer | nil,
         url: String | nil
       }

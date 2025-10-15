@@ -29,11 +29,6 @@ module CrawlerDev
       #   @return [Integer, nil]
       optional :status_code, Integer, api_name: :statusCode
 
-      # @!attribute success
-      #
-      #   @return [Boolean, nil]
-      optional :success, CrawlerDev::Internal::Type::Boolean
-
       # @!attribute text_length
       #
       #   @return [Integer, nil]
@@ -44,13 +39,12 @@ module CrawlerDev
       #   @return [String, nil]
       optional :url, String
 
-      # @!method initialize(content_type: nil, extracted_text: nil, final_url: nil, size_bytes: nil, status_code: nil, success: nil, text_length: nil, url: nil)
+      # @!method initialize(content_type: nil, extracted_text: nil, final_url: nil, size_bytes: nil, status_code: nil, text_length: nil, url: nil)
       #   @param content_type [String]
       #   @param extracted_text [String]
       #   @param final_url [String]
       #   @param size_bytes [Integer]
       #   @param status_code [Integer]
-      #   @param success [Boolean]
       #   @param text_length [Integer]
       #   @param url [String]
     end
