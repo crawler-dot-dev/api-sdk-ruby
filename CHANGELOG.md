@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0 (2025-10-16)
+
+Full Changelog: [v0.0.2...v0.1.0](https://github.com/crawler-dot-dev/api-sdk-ruby/compare/v0.0.2...v0.1.0)
+
+### Features
+
+* **api:** api update ([abab516](https://github.com/crawler-dot-dev/api-sdk-ruby/commit/abab516eaace70983ae1ac03d8f80045171ce311))
+
+
+### Bug Fixes
+
+* absolutely qualified uris should always override the default ([09eb4fa](https://github.com/crawler-dot-dev/api-sdk-ruby/commit/09eb4fa135d45b18344891242f4e69c15fea7906))
+* should not reuse buffers for `IO.copy_stream` interop ([1258f1f](https://github.com/crawler-dot-dev/api-sdk-ruby/commit/1258f1fedde82d3b5410b20c9dd79016bb639157))
+
 ## 0.0.2 (2025-10-08)
 
 Full Changelog: [v0.0.1...v0.0.2](https://github.com/crawler-dot-dev/api-sdk-ruby/compare/v0.0.1...v0.0.2)
