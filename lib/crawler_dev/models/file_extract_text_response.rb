@@ -24,22 +24,16 @@ module CrawlerDev
       #   @return [Integer, nil]
       optional :size_bytes, Integer, api_name: :sizeBytes
 
-      # @!attribute success
-      #
-      #   @return [Boolean, nil]
-      optional :success, CrawlerDev::Internal::Type::Boolean
-
       # @!attribute text_length
       #
       #   @return [Integer, nil]
       optional :text_length, Integer, api_name: :textLength
 
-      # @!method initialize(content_type: nil, extracted_text: nil, filename: nil, size_bytes: nil, success: nil, text_length: nil)
+      # @!method initialize(content_type: nil, extracted_text: nil, filename: nil, size_bytes: nil, text_length: nil)
       #   @param content_type [String]
       #   @param extracted_text [String]
       #   @param filename [String]
       #   @param size_bytes [Integer]
-      #   @param success [Boolean]
       #   @param text_length [Integer]
     end
   end

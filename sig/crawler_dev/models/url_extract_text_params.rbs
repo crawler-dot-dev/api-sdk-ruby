@@ -4,8 +4,8 @@ module CrawlerDev
       {
         url: String,
         clean_text: bool,
-        render_js: bool,
-        strip_boilerplate: bool
+        headers: ::Hash[Symbol, String],
+        proxy: CrawlerDev::URLExtractTextParams::Proxy
       }
       & CrawlerDev::Internal::Type::request_parameters
 
@@ -19,29 +19,55 @@ module CrawlerDev
 
       def clean_text=: (bool) -> bool
 
-      attr_reader render_js: bool?
+      attr_reader headers: ::Hash[Symbol, String]?
 
-      def render_js=: (bool) -> bool
+      def headers=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-      attr_reader strip_boilerplate: bool?
+      attr_reader proxy: CrawlerDev::URLExtractTextParams::Proxy?
 
-      def strip_boilerplate=: (bool) -> bool
+      def proxy=: (
+        CrawlerDev::URLExtractTextParams::Proxy
+      ) -> CrawlerDev::URLExtractTextParams::Proxy
 
       def initialize: (
         url: String,
         ?clean_text: bool,
-        ?render_js: bool,
-        ?strip_boilerplate: bool,
+        ?headers: ::Hash[Symbol, String],
+        ?proxy: CrawlerDev::URLExtractTextParams::Proxy,
         ?request_options: CrawlerDev::request_opts
       ) -> void
 
       def to_hash: -> {
         url: String,
         clean_text: bool,
-        render_js: bool,
-        strip_boilerplate: bool,
+        headers: ::Hash[Symbol, String],
+        proxy: CrawlerDev::URLExtractTextParams::Proxy,
         request_options: CrawlerDev::RequestOptions
       }
+
+      type proxy = { password: String, server: String, username: String }
+
+      class Proxy < CrawlerDev::Internal::Type::BaseModel
+        attr_reader password: String?
+
+        def password=: (String) -> String
+
+        attr_reader server: String?
+
+        def server=: (String) -> String
+
+        attr_reader username: String?
+
+        def username=: (String) -> String
+
+        def initialize: (
+          ?password: String,
+          ?server: String,
+          ?username: String
+        ) -> void
+
+        def to_hash: -> { password: String, server: String, username: String }
+      end
     end
   end
 end

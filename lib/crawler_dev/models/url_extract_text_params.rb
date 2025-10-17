@@ -19,32 +19,61 @@ module CrawlerDev
       #   @return [Boolean, nil]
       optional :clean_text, CrawlerDev::Internal::Type::Boolean
 
-      # @!attribute render_js
-      #   Whether to render JavaScript for HTML content. This parameter is ignored for
-      #   binary content types (PDF, DOC, etc.) since they are not HTML.
+      # @!attribute headers
+      #   Custom HTTP headers to send with the request (case-insensitive)
       #
-      #   @return [Boolean, nil]
-      optional :render_js, CrawlerDev::Internal::Type::Boolean
+      #   @return [Hash{Symbol=>String}, nil]
+      optional :headers, CrawlerDev::Internal::Type::HashOf[String]
 
-      # @!attribute strip_boilerplate
-      #   Whether to remove boilerplate text
+      # @!attribute proxy
+      #   Proxy configuration for the request
       #
-      #   @return [Boolean, nil]
-      optional :strip_boilerplate, CrawlerDev::Internal::Type::Boolean
+      #   @return [CrawlerDev::Models::URLExtractTextParams::Proxy, nil]
+      optional :proxy, -> { CrawlerDev::URLExtractTextParams::Proxy }
 
-      # @!method initialize(url:, clean_text: nil, render_js: nil, strip_boilerplate: nil, request_options: {})
-      #   Some parameter documentations has been truncated, see
-      #   {CrawlerDev::Models::URLExtractTextParams} for more details.
-      #
+      # @!method initialize(url:, clean_text: nil, headers: nil, proxy: nil, request_options: {})
       #   @param url [String] The URL to extract text from.
       #
       #   @param clean_text [Boolean] Whether to clean extracted text
       #
-      #   @param render_js [Boolean] Whether to render JavaScript for HTML content. This parameter is ignored for bin
+      #   @param headers [Hash{Symbol=>String}] Custom HTTP headers to send with the request (case-insensitive)
       #
-      #   @param strip_boilerplate [Boolean] Whether to remove boilerplate text
+      #   @param proxy [CrawlerDev::Models::URLExtractTextParams::Proxy] Proxy configuration for the request
       #
       #   @param request_options [CrawlerDev::RequestOptions, Hash{Symbol=>Object}]
+
+      class Proxy < CrawlerDev::Internal::Type::BaseModel
+        # @!attribute password
+        #   Proxy password for authentication
+        #
+        #   @return [String, nil]
+        optional :password, String
+
+        # @!attribute server
+        #   Proxy server URL (e.g., http://proxy.example.com:8080 or
+        #   socks5://proxy.example.com:1080)
+        #
+        #   @return [String, nil]
+        optional :server, String
+
+        # @!attribute username
+        #   Proxy username for authentication
+        #
+        #   @return [String, nil]
+        optional :username, String
+
+        # @!method initialize(password: nil, server: nil, username: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {CrawlerDev::Models::URLExtractTextParams::Proxy} for more details.
+        #
+        #   Proxy configuration for the request
+        #
+        #   @param password [String] Proxy password for authentication
+        #
+        #   @param server [String] Proxy server URL (e.g., http://proxy.example.com:8080 or socks5://proxy.example.
+        #
+        #   @param username [String] Proxy username for authentication
+      end
     end
   end
 end

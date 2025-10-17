@@ -18,7 +18,6 @@ class CrawlerDev::Test::Resources::FilesTest < CrawlerDev::Test::ResourceTest
         extracted_text: String | nil,
         filename: String | nil,
         size_bytes: Integer | nil,
-        success: CrawlerDev::Internal::Type::Boolean | nil,
         text_length: Integer | nil
       }
     end

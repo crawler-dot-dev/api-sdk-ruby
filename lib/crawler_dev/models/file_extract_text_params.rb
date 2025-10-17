@@ -19,18 +19,10 @@ module CrawlerDev
       #   @return [Boolean, nil]
       optional :clean_text, CrawlerDev::Internal::Type::Boolean
 
-      # @!attribute strip_boilerplate
-      #   Whether to remove boilerplate text
-      #
-      #   @return [Boolean, nil]
-      optional :strip_boilerplate, CrawlerDev::Internal::Type::Boolean
-
-      # @!method initialize(file:, clean_text: nil, strip_boilerplate: nil, request_options: {})
+      # @!method initialize(file:, clean_text: nil, request_options: {})
       #   @param file [Pathname, StringIO, IO, String, CrawlerDev::FilePart] The file to upload.
       #
       #   @param clean_text [Boolean] Whether to clean the extracted text
-      #
-      #   @param strip_boilerplate [Boolean] Whether to remove boilerplate text
       #
       #   @param request_options [CrawlerDev::RequestOptions, Hash{Symbol=>Object}]
     end

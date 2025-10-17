@@ -41,12 +41,6 @@ module CrawlerDev
       sig { params(status_code: Integer).void }
       attr_writer :status_code
 
-      sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :success
-
-      sig { params(success: T::Boolean).void }
-      attr_writer :success
-
       sig { returns(T.nilable(Integer)) }
       attr_reader :text_length
 
@@ -66,7 +60,6 @@ module CrawlerDev
           final_url: String,
           size_bytes: Integer,
           status_code: Integer,
-          success: T::Boolean,
           text_length: Integer,
           url: String
         ).returns(T.attached_class)
@@ -77,7 +70,6 @@ module CrawlerDev
         final_url: nil,
         size_bytes: nil,
         status_code: nil,
-        success: nil,
         text_length: nil,
         url: nil
       )
@@ -91,7 +83,6 @@ module CrawlerDev
             final_url: String,
             size_bytes: Integer,
             status_code: Integer,
-            success: T::Boolean,
             text_length: Integer,
             url: String
           }
