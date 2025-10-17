@@ -11,7 +11,7 @@ GIT
 PATH
   remote: .
   specs:
-    crawler.dev (0.0.2)
+    crawler.dev (0.1.0)
       connection_pool
 
 GEM
