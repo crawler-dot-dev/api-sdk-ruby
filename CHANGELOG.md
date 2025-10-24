@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 (2025-10-24)
+
+Full Changelog: [v0.1.0...v0.2.0](https://github.com/crawler-dot-dev/api-sdk-ruby/compare/v0.1.0...v0.2.0)
+
+### Features
+
+* handle thread interrupts in the core HTTP client ([5b73063](https://github.com/crawler-dot-dev/api-sdk-ruby/commit/5b730631fc16ef95b4d13b5d5f321ca7984a690a))
+
 ## 0.1.0 (2025-10-16)
 
 Full Changelog: [v0.0.2...v0.1.0](https://github.com/crawler-dot-dev/api-sdk-ruby/compare/v0.0.2...v0.1.0)
